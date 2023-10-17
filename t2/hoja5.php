@@ -87,8 +87,40 @@ $eje=1;
             break;
         }
     
-   
-    $eje++;
+        $eje++;
+        /*
+            Lo del inicio de sesion
+            */
+        echo("<br><br> ejercicio $eje<br>");
+        $usuariosSuscritos = array("usuario1", "usuario2", "usuario3");
+
+        // Verifica si el usuario está suscrito 
+        $usuarioActual = "usuario1";
+        
+        if (in_array($usuarioActual, $usuariosSuscritos)) {
+            // Fecha de inicio y fin de la oferta
+            $fechaInicioOferta = strtotime("06 October 2023");
+            $fechaFinOferta = strtotime("06 November 2023");
+        
+            // Fecha actual
+            $fechaActual = time();
+        
+            // Calcular el tiempo restante en segundos
+            $tiempoRestante = $fechaFinOferta - $fechaActual;
+        
+            if ($tiempoRestante > 0) {
+                // Convertir el tiempo restante en días
+                $diasRestantes = ceil($tiempoRestante / (60 * 60 * 24));
+        
+                // Mostrar la información de la oferta
+                echo "Oferta válida del " . date('d \d\e F \d\e Y', $fechaInicioOferta) . " al " . date('d \d\e F \d\e Y', $fechaFinOferta) . "<br>";
+                echo "Esta oferta es válida durante 1 mes, comenzó el " . date('d/m/Y', $fechaInicioOferta) . ", finaliza dentro de " . $diasRestantes . " días, el " . date('d/m/Y', $fechaFinOferta);
+            } else {
+                echo "La oferta ha expirado.";
+            }
+        } else {
+            echo "Acceso denegado. Debes estar suscrito para ver esta oferta.";
+        }
 
 
 ?>
