@@ -18,17 +18,23 @@
         <br>
     </form>
     <br><br>
-    <p>Choose your favorite Web language:</p>
+    <p><b>Radio</b></p>
 
     <form>
-        <input type="radio" id="html" name="fav_language" value="HTML">
-        <label for="html">HTML</label><br>
-        <input type="radio" id="css" name="fav_language" value="CSS">
-        <label for="css">CSS</label><br>
-        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-        <label for="javascript">JavaScript</label>
+        <label for="rojo">Rojo</label>
+        <input type="radio" id="rojo" name="radio" value="Rojo">
+        <label for="naranja">Naranja</label>
+        <input type="radio" id="naranja" name="radio" value="Naranja">
+        <label for="verde">Verde</label>
+        <input type="radio" id="verde" name="radio" value="Verde">
     </form>
-
+    <br><br>
+    <p><b>checkbox</b></p>
+    <form>
+        <label for="vehicle1"> Quiero recibir publicidad</label>
+        <input type="checkbox" id="publi" name="publi" value="publi">
+        
+    </form>
     <?php
 
     ?>
