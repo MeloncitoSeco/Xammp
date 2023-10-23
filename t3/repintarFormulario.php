@@ -12,6 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "nombre mal introducido ";
     }
     validarEmail($_POST["email"]);
+    
+    if (empty($_POST["apellido"])){
+        $errors[]="El apellido es obligatorio";
+    }elseif(preg_match("/^[^A-Z][*-][a-zA-Z*]$/", $_POST["apellido"])){
+        $errors[]="Formato apellido incorrecto";
+        
+    }
 
     if(!isset($_POST["color"])){
     $error = $error . " y selecciona un color ";
@@ -25,8 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $error = $error . " y debe seleccionar una ciudad";
     }
 
+    if(isset($_POST["ciudades"])){
+        $ciudades=$_POST["ciudades"];
+    }
+
     if (isset($error)) {
         $nombre = $_POST["nombre"];
+        $apellido = $_POST["apellido"];
         $email = $_POST["email"];
         $color = $_POST["color"];
         $publicidad = $_POST["publicidad"];
@@ -92,6 +104,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for = "nombre">Nombre:</label> 
 			<input value = "<?php if(isset($nombre))echo $nombre;?>"
 			id = "nombre" name = "nombre" type = "text">
+            <label for = "apellido">Apellido:</label> 
+			<input value = "<?php if(isset($apellido))echo $apellido;?>"
+			id = "apellido" name = "apellido" type = "text">
             <label for = "email">Email:</label> 
 			<input value = "<?php if(isset($email))echo $email;?>"
 			id = "email" name = "email" type = "email">				
@@ -124,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="2022" <?php if(isset($anio) && $anio === "2022") echo "selected"; ?>>2022</option>
             <option value="2021" <?php if(isset($anio) && $anio === "2021") echo "selected"; ?>>2021</option>
             <option value="2020" <?php if(isset($anio) && $anio === "2020") echo "selected"; ?>>2020</option>
-        </select>
+         </select>
 
             <h4>Multiple:</h4>
             <label for="ciudades">Ciudades:</label>
