@@ -4,37 +4,46 @@ include 'validar.php';
 $ciudades = array();
 $error = "";
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
 
 	if($_POST["nombre"]==""){
-    $error = "Recuerda rellenar el nombre ";
+        $error.= "Recuerda rellenar el nombre ";
     }elseif(!validarNombre($_POST["nombre"])){
-        $error = "nombre mal introducido ";
+        $error.= "nombre mal introducido ";
     }
-    validarEmail($_POST["email"]);
+    
+    if ($_POST["email"]==""){
+        $error.="El email es obligatorio";
+    }elseif(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
+        $error.="Formato email incorrecto";
+    }
     
     if (empty($_POST["apellido"])){
-        $errors[]="El apellido es obligatorio";
-    }elseif(preg_match("/^[^A-Z][*-][a-zA-Z*]$/", $_POST["apellido"])){
-        $errors[]="Formato apellido incorrecto";
+        $error.="El apellido es obligatorio";
+    }elseif(!preg_match("/^[^A-Z][*-][a-zA-Z*]$/", $_POST["apellido"])){
+        $error.="Formato apellido incorrecto";
         
     }
 
     if(!isset($_POST["color"])){
-    $error = $error . " y selecciona un color ";
+        $error.= " y selecciona un color ";
     }
 
     if(!isset($_POST["anio"])){
-    $error = $error . "y debe seleccionar un año ";
-    }
+        $error.= "y debe seleccionar un año ";
+        }
+    
+    
 
     if(!isset($_POST["ciudades"])){
-    $error = $error . " y debe seleccionar una ciudad";
+        $error.= " y debe seleccionar una ciudad";
     }
 
     if(isset($_POST["ciudades"])){
         $ciudades=$_POST["ciudades"];
     }
+
 
     if (isset($error)) {
         $nombre = $_POST["nombre"];
@@ -49,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }else{
         header("Location: parametrosFormulario.php");
     }
+    
 }
 
 ?>
@@ -111,7 +121,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<input value = "<?php if(isset($email))echo $email;?>"
 			id = "email" name = "email" type = "email">				
 			
-            <br><br>
+            <br>
+            <label for="slider">Numero de telefono</label>
+            <input type="range" id="slider" name="slider" min="1" max="999999999" step="1" value="123456789">
+            <output for="slider" id="sliderValue">123456789</output>
+            <script>
+                // Actualiza el valor del slider en tiempo real
+                const slider = document.getElementById('slider');
+                const sliderValue = document.getElementById('sliderValue');
+
+                slider.addEventListener('input', function() {
+                    sliderValue.textContent = slider.value;
+                });
+</script>
+            
+            <br>
 
             <h3>RADIO:</h3>
             <label for="Rojo">Rojo: </label>
