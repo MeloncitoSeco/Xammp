@@ -6,7 +6,7 @@
 <body>
 
 <?php
-if (isset($_COOKIE['nombre'])) {
+if (1 != ($_COOKIE['visitas'])) {
     $nombre = $_COOKIE['nombre'];
     echo "<h1>Bienvenido de nuevo, $nombre</h1>";
 } else {
