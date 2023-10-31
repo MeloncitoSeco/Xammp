@@ -1,5 +1,5 @@
 <?php
-session_start(); // Inicia la sesión
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST['usuario'];
@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['usuario'] = $usuario;
     $_SESSION['email'] = $email;
     
-    header("Location: mod_sesion.php");
+    header("Location: ej2,2.php");
     exit;
 }
 ?>

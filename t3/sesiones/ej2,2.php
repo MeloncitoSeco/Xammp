@@ -28,7 +28,7 @@ $sessionName = session_name();
     <input type="submit" value="Modificar Sesión">
 </form>
 <br>
-<a href="del_sesion.php">Continuar</a>
+<a href="ej2,3.php">Continuar</a>
 
 </body>
 </html>
