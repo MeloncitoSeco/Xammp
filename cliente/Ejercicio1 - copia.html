@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+ <meta charset="utf-8">
+ <title>Utilización del método Math.random</title>
+</head>
+
+<body>
+
+<div class="contenedor">
+ <p id="respuesta"></p>
+</div>
+<div class="contenedor">
+ <p id="respuesta0"></p>
+</div>
+ <script>
+
+   var parrafo = document.getElementById("respuesta");
+   var parrafo0 = document.getElementById("respuesta0");
+
+   var aleatorio = Math.random();
+   var mifecha = Date();
+   parrafo0.innerHTML = "Date() vale :"+mifecha;
+   
+   var hora = new Date().getHours();
+   parrafo0.innerHTML = "Valor de hora es :"+hora;
+  // parrafo0.innerHTML = hora;
+ 
+ // no var dia = " fecha y hora de ahora :"+mifecha;
+   // no parrafo.innerHTML = dia;
+   var aleatorio = 0.1;
+
+ //  if(aleatorio > 0.5){
+  //   parrafo.innerHTML = "<a href='http://myfpschool.com'>MyFpSchool.com</a>";
+  // }else{
+  //   if (new Date().getHours() < 15) {
+  //     parrafo.innerHTML = "Buenos días";
+  //   } else {
+  //     parrafo.innerHTML = "Buenas tardes";
+  //   }
+  // }
+
+ </script>
+
+</body>
+</html>

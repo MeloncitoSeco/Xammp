@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+ <meta charset="utf-8">
+ <title>Utilización del método Math.random</title>
+</head>
+
+<body>
+<p id="respuesta">Santi</p>
+ <script>
+
+   var parrafo = document.getElementById("respuesta");
+   var aleatorio = Math.random();
+   
+   // var aleatorio = 0.1;
+
+  if(aleatorio > 0.5){
+     parrafo.innerHTML = "<a href='http://myfpschool.com'>MyFpSchool.com</a>";
+	}else{
+     if (new Date().getHours() < 15) {
+       parrafo.innerHTML = "Buenos días";
+		} else {
+			parrafo.innerHTML = "Buenas tardes";
+			}
+   }
+
+ </script>
+
+</body>
+</html>
