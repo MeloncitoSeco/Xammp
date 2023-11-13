@@ -45,6 +45,8 @@ $stmt->bindParam(':rol',$rol);
     if(!$sentencia -> bind_param("ssi", $nombre,$clave,$rol)){
         echo("Fallo en la vinculacion de parametros: (" . $sentencia->errno . ")" . $sentencia-> error);
     }
-    if()
+    if(!$sentencia -> execute()){
+        echo("Fallo en la ejecucion: (" . $sentencia->errno . ")" . $sentencia-> error);
+    }
 
 ?>
