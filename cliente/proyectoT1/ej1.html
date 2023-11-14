@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saludos en diferentes idiomas</title>
+    <script>
+      function saludar(idioma) {
+        var mensaje;
+
+        switch (idioma) {
+          case "es":
+            mensaje = "Hola";
+            break;
+          case "ru":
+            mensaje = "Привет";
+            break;
+          case "en":
+            mensaje = "Hello";
+            break;
+          default:
+            mensaje = "¡Selecciona un idioma válido!";
+        }
+        document.getElementById("saludo").textContent = mensaje;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Saludos en diferentes idiomas</h1>
+
+    <!-- Botones para seleccionar el idioma -->
+    <button onclick="saludar('es')">Español</button>
+    <button onclick="saludar('ru')">Ruso</button>
+    <button onclick="saludar('en')">Ingles</button>
+
+    <!-- Párrafo para mostrar el saludo -->
+    <p id="saludo">Selecciona un idioma</p>
+  </body>
+</html>
