@@ -1,14 +1,9 @@
 <?php
 /* si va bien redirige a principal.php si va mal, mensaje de error */
 
-
-
-
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  	
 	if($_POST['usuario'] === "usuario" and $_POST["clave"] === "1234"){		
-		header("Location: registro.php");
+		header("Location: yaDentro.php");
 	}else{
 		$err = true;
 	}	
@@ -34,5 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			
 			<input type = "submit">
 		</form>
+
+		<p><a href="registro.php">Crear usuario</p></a>
 	</body>
 </html>

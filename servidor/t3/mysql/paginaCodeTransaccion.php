@@ -12,7 +12,7 @@ try {
     if ($mysqli->connect_error) {
         die("Error de conexión: " . $mysqli->connect_error);
     }
-    
+
     echo "Conexión realizada con éxito<br>";
 
     $mysqli->begin_transaction();
@@ -21,7 +21,7 @@ try {
     if ($stmt = $mysqli->prepare($consulta)) {
         $stmt->bind_param("s", $nombre);
         $stmt->execute();
-        $stmt->store_result(); 
+        $stmt->store_result();
         $num_filas = $stmt->num_rows;
         $stmt->bind_result($id, $existencias_existente);
         $stmt->fetch();
@@ -72,4 +72,3 @@ try {
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();
 }
-?>
