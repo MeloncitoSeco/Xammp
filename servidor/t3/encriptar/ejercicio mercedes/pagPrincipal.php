@@ -8,7 +8,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  	
 	if($_POST['usuario'] === "usuario" and $_POST["clave"] === "1234"){		
-		header("Location: principal.php");
+		header("Location: registro.php");
 	}else{
 		$err = true;
 	}	
