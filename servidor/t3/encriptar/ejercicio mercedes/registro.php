@@ -20,14 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if ($mysqli->connect_error) {
 				die("Error de conexión: " . $mysqli->connect_error);
 			}
+			$contra1=password_hash($contra2,PASSWORD_DEFAULT);
 			$consulta_insercion = "INSERT INTO usuarios (nombre, clave) VALUES (?, ?)";
 			if ($stmt = $mysqli->prepare($consulta_insercion)) {
 				$stmt->bind_param("si", $nombre, $contra1);
-
 				if ($stmt->execute()) {
-					echo "existencias actualizada con éxito.";
+					header("Location: pagPrincipal.php");
 				} else {
-					echo "Error al actualizar la existencias: " . $stmt->error;
+					echo "Error al actualizar añadir usuario: " . $stmt->error;
 				}
 			}
 		} catch (Exception $e) {
