@@ -3,8 +3,8 @@ $nombre = $_POST['nombre'];
 $existencias = $_POST['existencias'];
 $host = "127.0.0.1";
 $tabla = "tienda";
-$usuario = 'visual';
-$clave = 'daw2324';
+$usuario = 'root';
+$clave = '';
 
 try {
     $mysqli = new mysqli($host, $usuario, $clave, $tabla);
@@ -14,3 +14,5 @@ try {
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();
 }
+
+?>
