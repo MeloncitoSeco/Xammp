@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Saludos internautas</title>
     <script>
-      function saludar(idioma) {
-        var mensaje;
+      function saludar(idioma) {// esta funcion se llama en los botones al poner on click saludar y al tener metidos es o ru o en entra en la variable idioma
+        var mensaje;//Declaro la variable que va a se la variable de salida
 
-        switch (idioma) {
-          case "es":
-            mensaje = "Hola";
-            break;
+        switch (idioma) {// Esto es un switch en el cual 
+          case "es":// en este caso a la funcion se le ha metido es con lo cual
+            mensaje = "Hola";// mensaje se escribe en hola
+            break;// Y el breack evita quie se sobre escriban los datos ya que si no lo pusieramos siempre saldria Hello
           case "ru":
             mensaje = "Привет";
             break;
@@ -21,19 +21,17 @@
           default:
             mensaje = "¡Selecciona un idioma válido!";
         }
-        document.getElementById("saludo").textContent = mensaje;
+        document.getElementById("saludo").textContent = mensaje; //ya teniendo el saludo sacamos el id de saludo para luego alterarlo
       }
     </script>
   </head>
   <body>
     <h1>Saludos internautas</h1>
 
-    <!-- Botones para seleccionar el idioma -->
     <button onclick="saludar('es')">Español</button>
     <button onclick="saludar('ru')">Ruso</button>
     <button onclick="saludar('en')">Ingles</button>
 
-    <!-- Párrafo para mostrar el saludo -->
-    <p id="saludo">Selecciona un idioma</p>
+    <p id="saludo">Selecciona un idioma</p> <! Este es el campo sobre el que se usa el document.getElementById >
   </body>
 </html>

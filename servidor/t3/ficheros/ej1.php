@@ -8,7 +8,7 @@ if ($fich===false){
         echo "$car<br>";
     }
     
-1234
+1234;
 }
 
 

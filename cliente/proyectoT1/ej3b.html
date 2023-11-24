@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function tribonacciIterativo(n) {
+        if (n === 0) {
+          return 0;
+        } else if (n === 1 || n === 2) {
+          return 1;
+        } else {
+          let a = 0,
+            b = 1,
+            c = 1,
+            resultado;
+
+          for (let i = 3; i <= n; i++) {
+            resultado = a + b + c;
+            a = b;
+            b = c;
+            c = resultado;
+          }
+
+          return resultado;
+        }
+      }
+
+      
+      for (let i = 0; i <= 10; i++) {
+        console.log(tribonacciIterativo(i));
+      }
+    </script>
+  </body>
+</html>
