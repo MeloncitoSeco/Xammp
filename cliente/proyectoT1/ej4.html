@@ -21,12 +21,16 @@
 
   <script>
     
-      var numeros = [];
+      var numeros = []; // creas un array vacio 
 
-      for ($i=0;$i < 6; $i++) {
-        var numeroAleatorio = Math.floor(Math.random() * 49) + 1;
+      for ($i=0;$i < 6; $i++) {// como son 6 numeros lo hago desde cero hasta 6
+        var numeroAleatorio = Math.floor(Math.random() * 49) + 1; // mathrandom da un double entre 0 y 1 como queremos que nos de un numero hasta el 49 
+        // escribimos por 49 pero si nos damos cuenta podria ser que nos diera 0 y no nos interesa asi que le sumamos 1 con lo cual nos da un numero desde
+        // 1 hasta 49
         if (!numeros.includes(numeroAleatorio)) {
-          numeros.push(numeroAleatorio);
+          numeros.push(numeroAleatorio);// lo va añadiendo a el array si no hay otro igual
+        }else{
+          $i-=1;// si hay otro igual se repite un ciclo
         }
       }
 
