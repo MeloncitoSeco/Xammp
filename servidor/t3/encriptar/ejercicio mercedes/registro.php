@@ -14,6 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if ($contra1 != $contra2) {
 		$err = true;
 	} else {
+$nombre = $_POST['nombre'];
+$existencias = $_POST['existencias'];
+$host = "127.0.0.1";
+$tabla = "tienda";
+$usuario = 'root';
+$clave = '';
 
 		try {
 			$mysqli = new mysqli($host, $usuario, $clave, $tabla);
