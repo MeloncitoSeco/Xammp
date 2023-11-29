@@ -7,7 +7,8 @@
   </head>
   <body>
     <script>
-      function tribonacci(n) {
+      function tribonacci(n) {// es una funcion recursiva con la cual se llama a si misma hasta que llegue a 2 o a 1 que entonces devuelve 1 porque 
+          // las primeras posiciones devuelven 1 en la posicion 1  y en la 0 
         if (n === 0) {
           return 0;
         } else if (n === 1 || n === 2) {
@@ -19,6 +20,7 @@
 
       for (let i = 0; i <= 10; i++) {
         console.log(tribonacci(i));
+        // lo muestra en la consola
       }
     </script>
   </body>

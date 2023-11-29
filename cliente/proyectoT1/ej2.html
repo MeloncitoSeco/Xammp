@@ -6,11 +6,10 @@
     <title>Mostrar Array</title>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Array de ejemplo
         var semana = [ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 
-      var salida = document.getElementById("salida");
-      salida.textContent= semana.toString();
+      var salida = document.getElementById("salida"); // busca el elemento con id salida y lo sustituye en el siguiente paso 
+      salida.textContent= semana.toString(); // por el array semana pasado a string
 
       });
     </script>
