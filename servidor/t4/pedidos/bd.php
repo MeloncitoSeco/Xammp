@@ -64,4 +64,51 @@ function registrar_restaurante($correo, $clave, $pais, $CP, $Ciudad, $Direccion)
 }
 
 
+//estas funciones hay que incluirlas en bd_tienda_restaurantes.php
+function cargar_categorias(){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);
+	$ins = "select codCat, nombre from categorias";
+	$resul = $bd->query($ins);	
+	if (!$resul) {
+		return FALSE;
+	}
+	if ($resul->rowCount() === 0) {    
+		return FALSE;
+    }
+	//si hay 1 o más
+	return $resul;	
+}
+function cargar_categoria($codCat){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);
+	$ins = "select nombre, descripcion from categorias where codcat = $codCat";
+	$resul = $bd->query($ins);	
+	if (!$resul) {
+		return FALSE;
+	}
+	if ($resul->rowCount() === 0) {    
+		return FALSE;
+    }	
+	//si hay 1 o más
+	return $resul->fetch();	
+}
+
+function cargar_productos_categoria($codCat){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);	
+	$sql = "select * from productos where categoria  = $codCat";	
+	$resul = $bd->query($sql);	
+	if (!$resul) {
+		return FALSE;
+	}
+	if ($resul->rowCount() === 0) {    
+		return FALSE;
+    }	
+	//si hay 1 o más
+	return $resul;			
+}
+
+
+?>
 
