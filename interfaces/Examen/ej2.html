@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        border-radius: 4px;
+        margin-left: 6px;
+        width: 400px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        border-color: rgba(127, 127, 127, 0.659);
+        border-width: 1px;
+        border-style: solid;
+        text-align: center;
+        line-height: 2em;
+        /*display: flex;*/
+      }
+      h2{
+        font-weight: bold;
+      }
+      .izquierda{
+        text-align: left;
+      }
+      input[type="submit"] {
+            margin-left: 6px;
+            background-color: #0062f5;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            float: left;
+            margin-left: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <form>
+        <h2>Reserva de vuelo</h2>
+        <label for="fname">Nombre del cliente:</label>
+        <input type="text" id="fname" name="fname"  placeholder="Introduzca su email"/><br />
+        <label for="lname">Aeropuerto de destino: </label>
+        <input type="text" id="lname" name="lname" placeholder="Introduce su aeropuerto de destino"/><br />
+        <label for="fname">Aeropuerto de partida:</label>
+      <input type="text" id="fname" name="fname"  placeholder="Introduce su aeropuerto de partida"/><br />
+      <label for="birthdaytime">Fecha de reserva:</label>
+                <input type="datetime-local" id="fecha" name="fecha"  >
+      <br>
+      <input type="submit" value="Enviar" id="izquierda"/>
+      <br><br>
+    </form>
+  </body>
+</html>
