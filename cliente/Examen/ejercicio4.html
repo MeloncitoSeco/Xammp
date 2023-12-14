@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Cifrado Cesar</h2>
+    <label for="ori">Texto original</label>
+    <p id="ori"></p>
+
+    <label for="ori">Clave</label>
+    <p id="cla"></p>
+    <label for="ori">Solucion</label>
+    <p id="cla"></p>
+
+    <script>
+      let texto = prompt("Escriba el texto que desea cifrar");
+      let clave;
+
+      do {
+        clave = prompt(
+          "Escriba la clave (varios numeros enteros separados por espacio)"
+        );
+
+        if (isNaN(parseInt(clave))) {
+          // Comprueba si la entrada no es un número válido
+          alert("No has escrito un número");
+        }
+      } while (isNaN(parseInt(clave)));
+      textoGu=texto;
+      claveGu=clave;
+
+      var salida = document.getElementById("ori"); // busca el elemento con id salida y lo sustituye en el siguiente paso
+      salida.textContent = texto.toString();
+      document.write("<br>");
+      var salida = document.getElementById("cla"); // busca el elemento con id salida y lo sustituye en el siguiente paso
+      salida.textContent = clave.toString();
+      document.write("<br>");
+
+      clave = clave.split(" ");
+
+      num = 0;
+      longi = clave.length - 1;
+
+      for (let letra of texto) {
+        // Bucle for...of que itera sobre cada letra del texto introducido
+        if (letra != " ") {
+          // comprueba si es o no un espacio y si es un espacio lo escribe y si no lo cambia con la siguiente linea
+          if (num <= longi) {
+            salida = parseInt(clave[num]);
+            num++;
+
+            let cifra = letra.charCodeAt(0) + salida; // Obtiene el valor Unicode de la letra y suma la clave de cifrado
+            document.write(String.fromCharCode(cifra));
+          } else {
+            salida = parseInt(clave[0]);
+
+            let cifra = letra.charCodeAt(0) + salida; // Obtiene el valor Unicode de la letra y suma la clave de cifrado
+            document.write(String.fromCharCode(cifra));
+            num = 0;
+            //document.write(texto[num]);
+          }
+        } else {
+          document.write(String.fromCharCode(32)); // Como estamos usando la funcion from code char que transforma el int al codigo ascci
+        }
+       
+
+        
+      }
+      claveGu =clave;
+        num = 0;
+        longi = clave.length - 1;
+      document.write("<br>");
+      document.write("<br>");
+      for (let letra1 of textoGu) {
+          // Bucle for...of que itera sobre cada letra del texto introducido
+          if (letra1 != " ") {
+            // comprueba si es o no un espacio y si es un espacio lo escribe y si no lo cambia con la siguiente linea
+            if (num <= longi) {
+              salida = parseInt(claveGu[num]);
+              num++;
+            document.write(letra1+" se ha cifrado a ");
+              let cifra = letra1.charCodeAt(0) + salida; // Obtiene el valor Unicode de la letra y suma la clave de cifrado
+              document.write(String.fromCharCode(cifra) + "<br>");
+            } else {
+                
+              //salida = parseInt(claveGu[0]);
+              document.write(letra1+" se ha cifrado a ");
+              let cifra = letra1.charCodeAt(0) + salida; // Obtiene el valor Unicode de la letra y suma la clave de cifrado
+              document.write(String.fromCharCode(cifra) +"<br>");
+              num = 0;
+              //document.write(texto[num]);
+            }
+          } else {
+            document.write("<br>"); // Como estamos usando la funcion from code char que transforma el int al codigo ascci
+          }
+        }
+    </script>
+  </body>
+</html>
