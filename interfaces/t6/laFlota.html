@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(11, 40px);
+            gap: 4px;
+        }
+
+        .cell {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            background-color: #87CEEB; /* Color del agua */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .ship {
+            background-color: #8B4513; /* Color del barco */
+            cursor: not-allowed;
+        }
+    </style>
+    <title>Hundir la Flota</title>
+</head>
+<body>
+
+<div>
+    <div style="display: flex; align-items: center;">
+        <div style="width: 40px;"></div>
+        <div class="board" id="player-board"></div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+        <div>F</div>
+        <div>G</div>
+        <div>H</div>
+        <div>I</div>
+        <div>J</div>
+        
+    </div>
+</div>
+
+<div>
+    <div class="board" id="opponent-board"></div>
+    <div style="display: flex; justify-content: center;">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+        <div>F</div>
+        <div>G</div>
+        <div>H</div>
+        <div>I</div>
+        <div>J</div>
+    </div>
+</div>
+
+<script>
+    const boardSize = 10;
+
+    // Función para crear el tablero
+    function createBoard(boardId) {
+        const board = document.getElementById(boardId);
+
+        // Añadir letras en la fila superior
+        const label = document.createElement('div');
+            label.className = 'cell';
+            label.textContent = String.fromCharCode(64);
+            board.appendChild(label);
+        for (let i = 0; i < 10; i++) {
+            const label = document.createElement('div');
+            label.className = 'cell';
+            label.textContent = String.fromCharCode(65 + i);
+            board.appendChild(label);
+        }
+        
+
+        // Añadir celdas
+        for (let i = 0; i < boardSize; i++) {
+            for (let j = 0; j < boardSize + 1; j++) {
+                const cell = document.createElement('div');
+                cell.className = j === 0 ? 'cell label' : 'cell';
+                if (j === 0) {
+                    cell.textContent = i + 1;
+                }
+                cell.dataset.index = `${i}-${j - 1}`;
+                cell.addEventListener('click', handleCellClick);
+                board.appendChild(cell);
+            }
+        }
+    }
+
+    // Función para manejar el clic en las celdas
+    function handleCellClick(event) {
+        const clickedCell = event.target;
+        const index = clickedCell.dataset.index;
+
+        // Aquí puedes implementar la lógica del juego
+        // Por ejemplo, cambiar el color de la celda para indicar un disparo
+
+        clickedCell.style.backgroundColor = '#4682B4'; // Cambia el color a azul claro (impacto en el agua)
+        clickedCell.style.cursor = 'default'; // Desactiva el cursor para celdas ya clicadas
+
+        // También puedes agregar lógica para manejar la presencia de barcos, etc.
+
+        // Ejemplo de cómo marcar una celda como parte de un barco
+        // clickedCell.classList.add('ship');
+    }
+
+    // Inicializar los tableros al cargar la página
+    window.onload = function () {
+        createBoard('player-board');
+        createBoard('opponent-board');
+    };
+</script>
+
+</body>
+</html>
