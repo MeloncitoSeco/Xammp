@@ -21,25 +21,24 @@
       clave = clave.split(" ");
 
       num = 0;
-      longi = clave.length-1;
+      longi = clave.length - 1;
 
       for (let letra of texto) {
         // Bucle for...of que itera sobre cada letra del texto introducido
-        if (letra != " ") {// comprueba si es o no un espacio y si es un espacio lo escribe y si no lo cambia con la siguiente linea
+        if (letra != " ") {
+          // comprueba si es o no un espacio y si es un espacio lo escribe y si no lo cambia con la siguiente linea
           if (num <= longi) {
-            
             salida = parseInt(clave[num]);
             num++;
-          
-          let cifra = letra.charCodeAt(0) + salida; // Obtiene el valor Unicode de la letra y suma la clave de cifrado
-          document.write(String.fromCharCode(cifra));
+
+            let cifra = letra.charCodeAt(0) + salida; // Obtiene el valor Unicode de la letra y suma la clave de cifrado
+            document.write(String.fromCharCode(cifra));
           } else {
-            
             salida = parseInt(clave[0]);
-          
-          let cifra = letra.charCodeAt(0) + salida; // Obtiene el valor Unicode de la letra y suma la clave de cifrado
-          document.write(String.fromCharCode(cifra));
-          num=0;
+
+            let cifra = letra.charCodeAt(0) + salida; // Obtiene el valor Unicode de la letra y suma la clave de cifrado
+            document.write(String.fromCharCode(cifra));
+            num = 0;
             //document.write(texto[num]);
           }
         } else {
